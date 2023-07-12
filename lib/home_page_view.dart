@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:weatherapp/style.dart';
 import 'package:weatherapp/api_key.dart';
+import 'package:http/http.dart';
 
 class HomePageView extends StatefulWidget {
   const HomePageView({super.key});
@@ -10,6 +13,22 @@ class HomePageView extends StatefulWidget {
 }
 
 class _HomePageViewState extends State<HomePageView> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  Future<void> getWeatherData() async {
+    Response response = await get(
+      Uri.parse(
+          'https://api.openweathermap.org/data/2.5/weather?q=Chittagong&appid=$myApiKey&units=metric'),
+    );
+    final Map<String, dynamic> decodedWeatherData = jsonDecode(response.body);
+    print(decodedWeatherData);
+
+  }
+
   //API https://api.openweathermap.org/data/2.5/weather?q=Chittagong&appid=myAPI
   @override
   Widget build(BuildContext context) {
@@ -57,9 +76,12 @@ class _HomePageViewState extends State<HomePageView> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.network('https://openweathermap.org/img/wn/10d@2x.png'),
+                        Image.network(
+                            'https://openweathermap.org/img/wn/10d@2x.png'),
                         Text('27' + '\u2103'),
-                        SizedBox(width: 25.0,),
+                        SizedBox(
+                          width: 25.0,
+                        ),
                         Column(
                           children: [
                             Text('Max 25' + '\u2103'),
