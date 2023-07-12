@@ -114,8 +114,8 @@ class _HomePageViewState extends State<HomePageView> {
                               width: 8.0,
                             ),
                             Text(
-                              '${fetchedData['main']['temp']}' ' ' '\u2103',
-                              style: TextStyle(
+                              '${fetchedData['main']['temp'].toString()}' ' ' '\u2103',
+                              style: const TextStyle(
                                   color: Colors.white, fontSize: 25.0),
                             ),
                             const SizedBox(
@@ -126,18 +126,18 @@ class _HomePageViewState extends State<HomePageView> {
                                 Text(
                                   'Max'
                                   ' '
-                                  '${fetchedData['main']['temp_max']}'
+                                  '${fetchedData['main']['temp_max'].toString()}'
                                   ' '
                                   '\u2103',
-                                  style: TextStyle(color: Colors.white),
+                                  style: const TextStyle(color: Colors.white),
                                 ),
                                 Text(
                                     'Min'
                                     ' '
-                                    '${fetchedData['main']['temp_min']}'
+                                    '${fetchedData['main']['temp_min'].toString()}'
                                     ' '
                                     '\u2103',
-                                    style: TextStyle(color: Colors.white))
+                                    style: const TextStyle(color: Colors.white))
                               ],
                             )
                           ],
