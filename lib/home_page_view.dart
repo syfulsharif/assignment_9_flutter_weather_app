@@ -12,7 +12,7 @@ class HomePageView extends StatefulWidget {
 }
 
 class _HomePageViewState extends State<HomePageView> {
-  Map<String, dynamic> fetchedData = {};
+  Map fetchedData = {};
   bool inProgress = false;
   @override
   void initState() {
@@ -22,7 +22,7 @@ class _HomePageViewState extends State<HomePageView> {
     // print(fetchedData);
   }
 
-  Future<void> getWeatherData() async {
+  void getWeatherData() async {
     bool inProgress = true;
     Response response = await get(
       Uri.parse(
