@@ -1,0 +1,1 @@
+const myApiKey = 'ce8485aef326de9568eb75e14385f248';
