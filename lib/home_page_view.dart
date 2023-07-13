@@ -23,6 +23,14 @@ class _HomePageViewState extends State<HomePageView> {
     // print(fetchedData);
   }
 
+  mySnackBar(message, context) {
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+      ),
+    );
+  }
+
   void getWeatherData() async {
     bool inProgress = true;
     Response response = await get(
@@ -33,7 +41,7 @@ class _HomePageViewState extends State<HomePageView> {
     if (response.statusCode == 200) {
       fetchedData.addAll(decodedWeatherData);
       // print(fetchedData['name']);
-    } else {}
+    }
     inProgress = false;
     setState(() {});
     // return decodedWeatherData;
