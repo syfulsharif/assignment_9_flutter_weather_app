@@ -23,16 +23,16 @@ class _HomePageViewState extends State<HomePageView> {
     // print(fetchedData);
   }
 
-  mySnackBar(message, context) {
-    return ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-      ),
-    );
-  }
+  // mySnackBar(message, context) {
+  //   return ScaffoldMessenger.of(context).showSnackBar(
+  //     SnackBar(
+  //       content: Text(message),
+  //     ),
+  //   );
+  // }
 
-  void getWeatherData() async {
-    bool inProgress = true;
+  Future getWeatherData() async {
+    inProgress = true;
     Response response = await get(
       Uri.parse(
           'https://api.openweathermap.org/data/2.5/weather?q=Chittagong&appid=$myApiKey&units=metric'),
