@@ -20,16 +20,7 @@ class _HomePageViewState extends State<HomePageView> {
     // TODO: implement initState
     super.initState();
     getWeatherData();
-    // print(fetchedData);
   }
-
-  // mySnackBar(message, context) {
-  //   return ScaffoldMessenger.of(context).showSnackBar(
-  //     SnackBar(
-  //       content: Text(message),
-  //     ),
-  //   );
-  // }
 
   Future getWeatherData() async {
     inProgress = true;
