@@ -12,8 +12,9 @@ class HomePageView extends StatefulWidget {
 }
 
 class _HomePageViewState extends State<HomePageView> {
-  Map fetchedData = {};
   bool inProgress = false;
+  Map fetchedData = {};
+
   @override
   void initState() {
     // TODO: implement initState
@@ -32,7 +33,7 @@ class _HomePageViewState extends State<HomePageView> {
     if (response.statusCode == 200) {
       fetchedData.addAll(decodedWeatherData);
       // print(fetchedData['name']);
-    }
+    } else {}
     inProgress = false;
     setState(() {});
     // return decodedWeatherData;
@@ -83,6 +84,7 @@ class _HomePageViewState extends State<HomePageView> {
                 Image.asset(
                   'assets/images/bg_g.jpg',
                   fit: BoxFit.fill,
+                  height: double.infinity,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -114,7 +116,9 @@ class _HomePageViewState extends State<HomePageView> {
                               width: 8.0,
                             ),
                             Text(
-                              '${fetchedData['main']['temp'].toString()}' ' ' '\u2103',
+                              '${fetchedData['main']['temp'].toString()}'
+                              ' '
+                              '\u2103',
                               style: const TextStyle(
                                   color: Colors.white, fontSize: 25.0),
                             ),
@@ -146,7 +150,7 @@ class _HomePageViewState extends State<HomePageView> {
                           '${fetchedData['weather'][0]['main']}',
                           style: const TextStyle(
                               color: Colors.grey,
-                              fontSize: 20.0,
+                              fontSize: 30.0,
                               fontWeight: FontWeight.bold),
                         ),
                       ],
